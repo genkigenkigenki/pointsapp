@@ -1,0 +1,15 @@
+.box-shadow(@x1; @y1; @blur1; @r1; @g1; @b1; @opacity1; @x2; @y2; @blur2; @r2; @g2; @b2; @opacity2) {
+  box-shadow: @x1 @y1 @blur1 rgba(@r1, @g1, @b1, @opacity1), @x2 @y2 @blur2 rgba(@r2, @g2, @b2, @opacity2);
+}
+
+.shadow-one {
+  .box-shadow(0px, 2px, 10px, 0, 0, 0, 0.16, 0px, 2px, 5px, 0, 0, 0, 0.26);
+}
+
+.shadow-two {
+  .box-shadow(0px, 6px, 20px, 0, 0, 0, 0.19, 0px, 8px, 17px, 0, 0, 0, 0.2);
+}
+
+.shadow-three {
+  .box-shadow(0px, 17px, 50px, 0, 0, 0, 0.19, 0px, 12px, 15px, 0, 0, 0, 0.24);
+}

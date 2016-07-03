@@ -1,0 +1,100 @@
+.typography(@size; @weight) {
+  font-size: @size;
+  font-weight: @weight;
+}
+
+.spacing(@spacing) {
+  letter-spacing: @spacing;
+}
+
+.line-height(@lh) {
+  line-height: @lh;
+}
+
+.f-display-three {
+  .typography(3.5rem, 400);
+  .spacing(-0.03125rem);
+}
+.f-display-one {
+  .typography(2.125rem, 400);
+  .line-height(2.5rem);
+}
+.f-title {
+  .typography(1.25rem, 500);
+  .spacing(0.03125rem);
+}
+.f-subhead {
+  .typography(1rem, 500);
+  .spacing(0.0625rem);
+  .line-height(1.625rem);
+}
+.f-body-one {
+  .typography(0.875rem, 400);
+  .spacing(0.0625rem);
+  .line-height(1.4375rem);
+}
+.f-body-two {
+  .typography(0.775rem, 400);
+  .spacing(0.0625rem);
+  .line-height(1.3375rem);
+}
+.f-button {
+  .typography(0.875rem, 600);
+  .spacing(0.0625rem);
+}
+.f-body-three {
+  .typography(0.675rem, 400);
+  .spacing(0.0625rem);
+  .line-height(1.2375rem);
+}
+.f-body-three-b {
+  .typography(0.675rem, 600);
+  .spacing(0.0625rem);
+  .line-height(1.2375rem);
+}
+.f-disclaimer {
+  .typography(0.575rem, 400);
+  .spacing(0.0625rem);
+  .line-height(1.0675rem);
+}
+.f-caption {
+  .typography(0.8rem, 500);
+  .spacing(0.0625rem);
+}
+
+.f-center {
+  text-align: center;
+}
+
+.f-right {
+  text-align: right;
+}
+
+.f-left {
+  text-align: left;
+}
+
+.font-override {
+  font-family: inherit;
+}
+
+.f-upper {
+  text-transform: uppercase;
+}
+
+.f-uline {
+  display: inline-block;
+  border-bottom: 1px dashed black;
+}
+
+.font-class-en {
+  font-family: 'Roboto', 'Open Sans', 'Noto Sans CJK JP', 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', 'メイリオ','Meiryo', Helvetica, Arial, sans-serif !important;
+}
+
+.font-class-jp {
+  font-family: 'Noto Sans CJK JP', 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro', 'メイリオ','Meiryo', 'Roboto', 'Open Sans', Helvetica, Arial, sans-serif !important;
+}
+
+.font-class-cn {
+  font-family: "冬青黑体", "Hiragino Sans GB", "华文细黑", "STXihei", "微软雅黑体", "Microsoft YaHei", "宋体", "SimSun", "Roboto", Helvetica, Arial, sans-serif !important;
+}

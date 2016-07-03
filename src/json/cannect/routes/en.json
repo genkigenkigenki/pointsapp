@@ -1,0 +1,58 @@
+{
+  "resetParse": {
+
+  },
+  "mainTemplate": {
+    "mainTemplate": true,
+    "resources": [
+      {
+        "type": "template",
+        "url": {
+          "key": "server",
+          "url": "json/cannect/en/templates/main/{0}.json"
+        },
+        "ver": 0,
+        "appendURL": [0]
+      }
+    ]
+  },
+  "home": {
+    "auth": {
+      "req": true,
+      "redirect": "login"
+    },
+    "resources": [
+      {
+        "type": "template",
+        "url": {
+          "key": "server",
+          "url": "json/cannect/en/templates/home/{0}.json"
+        },
+        "ver": 0,
+        "appendURL": [0]
+      },
+      {
+        "type": "data",
+        "key": "userData",
+        "url": {
+          "auth": true,
+          "key": "api",
+          "url": "user"
+        }
+      }
+    ]
+  },
+  "login": {
+    "resources": [
+      {
+        "type": "template",
+        "url": {
+          "key": "server",
+          "url": "json/cannect/en/templates/login/{0}.json"
+        },
+        "ver": 0,
+        "appendURL": [0]
+      }
+    ]
+  }
+}
