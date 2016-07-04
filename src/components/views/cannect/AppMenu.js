@@ -5,6 +5,7 @@ var DOMElement = require('jokismo_engine_fork/dom-renderables/DOMElement'),
     Promise = require('bluebird'),
     AnimateOpacity = require('../../animation/AnimateOpacity'),
     AnimatePosition = require('../../animation/AnimatePosition'),
+    AnimateScale = require('../../animation/AnimateScale'),
     ScrollContainer = require('../../ui/ScrollContainer'),
     SizeManager = require('../../utils/SizeManager'),
     ZDiv = require('../../ui/ZDiv'),
@@ -61,11 +62,10 @@ function AppMenu(node, options) {
             _createPaper.call(this, new ZDiv(this._paper.rootNode, {
                 z: 2
             }).contentNode);
-            this._paper.node.setPosition(-240, 0, 0);
             _renderLinks.call(this);
-            //this._rootNode.show();
             this._rootNode.addChild(this._paper.rootNode);
-            clock.setTimeout(this.changeState.bind(this, 'main'), 300);
+            globalStore.deferAction(10)
+                .then(this.changeState.bind(this, 'main'));
         }
     }.bind(this));
 }
@@ -78,18 +78,28 @@ AppMenu.prototype.initView = function initView() {
     _renderLinks.call(this);
     _registerClickToggle.call(this);
     _registerGlobalEvent.call(this);
+    this.changeState('hidden');
     //_showBottomDrawer.call(this);
     if (globalStore.get('authComplete')) {
         clock.setTimeout(function () {
             if (globalStore.get('fullWidthShowing')) _renderMiddleButton.call(this);
             globalStore.endTransition(id);
+            if (this._SMCurrent === 'hidden' && !this._paper.rootNode) {
+                this._paper.rootNode = new Node();
+                _createPaper.call(this, new ZDiv(this._paper.rootNode, {
+                    z: 2
+                }).contentNode);
+                _renderLinks.call(this);
+                this._rootNode.addChild(this._paper.rootNode);
+                globalStore.deferAction(10)
+                    .then(this.changeState.bind(this, 'main'));
+            }
             clock.setTimeout(function () {
                 if (!this._SMDirty && globalStore.get('windowWidth') < 1438) this.changeState('hidden');
             }.bind(this), 15000);
         }.bind(this), 2000);
     } else {
         globalStore.endTransition(id);
-        this.changeState('hidden');
         this._button.node.setScale(0, 0, 0);
         this._button.node.setOpacity(0);
     }
@@ -218,10 +228,10 @@ function _registerGlobalEvent() {
 function _createButtons(node) {
     this._button.node = node.addChild();
     this._button.node.setSizeMode('absolute', 'absolute')
-        .setPosition(150, 24, 0)
+        .setPosition(12, 24, 0)
         .setAbsoluteSize(48, 48);
     new DOMElement(this._button.node, {
-        classes: ['shadow-one', 'radius-24', 'bg-white', 'pointer', 'oflow-hidden']
+        classes: ['radius-24', 'bg-lt-6-grey', 'b-lt-4-grey', 'pointer', 'oflow-hidden']
     });
     this._button.node.registerEvent('click');
     this._button.node.addManagedComponent(getEventReceiver({
@@ -231,11 +241,6 @@ function _createButtons(node) {
         }
     }));
     this._button.positionAnimation = new AnimatePosition(this._button.node);
-    this.registerChangeFunc('hidden', 'in', function () {
-        this._button.positionAnimation.start({
-            x: 12
-        });
-    }.bind(this));
     this.registerChangeFunc('main', 'in', function () {
         this._button.positionAnimation.start({
             x: 150
@@ -269,12 +274,36 @@ function _createButtons(node) {
 }
 
 function _createPaper(node) {
+    var width = globalStore.get('windowHeight') * 2.2,
+        childNode;
+    this._paper.rippleNode = node.addChild()
+        .setSizeMode('absolute', 'relative')
+        .setAbsoluteSize(236);
+    new DOMElement(this._paper.rippleNode, {
+        classes: ['oflow-hidden']
+    });
+    childNode = this._paper.rippleNode.addChild()
+        .setPosition(0, globalStore.get('windowHeight') / 2, 1);
+    this._paper.expandRipple = childNode.addChild()
+        .setScale(0.5, 0.5, 1)
+        .setMountPoint(0.5, 0.5, 1)
+        .setOrigin(0.5, 0.5, 0.5)
+        .setSizeMode('absolute', 'absolute')
+        .setAbsoluteSize(width, width)
+        .setPosition(-width / 2, 0, 0);
+    new DOMElement(this._paper.expandRipple, {
+        classes: ['bg-lt-6-grey'],
+        properties: {
+            'border-radius': '{0}px'.format(width)
+        }
+    });
     this._paper.node = node.addChild();
     this._paper.node.setSizeMode('absolute', 'relative')
         .setAbsoluteSize(236);
     new DOMElement(this._paper.node, {
-        classes: ['shadow-one', 'bg-white']
+        classes: ['bg-lt-6-grey']
     });
+    this._paper.node.setOpacity(0);
     this._paper.node.registerEvent('click');
     this._paper.node.addManagedComponent(getEventReceiver({
         eventName: 'click',
@@ -284,20 +313,45 @@ function _createPaper(node) {
         }.bind(this)
     }));
     this._paper._scrollContainer = new ScrollContainer(this._paper.node);
-    this._paper.positionAnimation = new AnimatePosition(this._paper.node);
+    this._paper.opacityAnimation = new AnimateOpacity(this._paper.node);
+    this._paper.expandAnimation = new AnimateScale(this._paper.expandRipple);
+    this._paper.positionAnimation = new AnimatePosition(this._paper.expandRipple);
     this.registerChangeFunc('hidden', 'in', function () {
-        this._paper.positionAnimation.start({
-            x: -240
-        }).then(function () {
-            this._paper.rootNode.dismount();
-            this._paper.rootNode = null;
-            this._paper.current = '';
+        this._paper.opacityAnimation.start({
+            opacity: 0,
+            duration: 200
+        }).then(function() {
+            this._button.positionAnimation.start({
+                x: 12
+            });
+            this._paper.positionAnimation.start({
+                x: -(globalStore.get('windowHeight') * 1.1)
+            });
+            this._paper.expandAnimation.start({
+                x: 0.5,
+                y: 0.5,
+                duration: 200
+            }).then(function () {
+                this._paper.rootNode.dismount();
+                this._paper.rootNode = null;
+                this._paper.current = '';
+            }.bind(this));
         }.bind(this));
     }.bind(this));
     this.registerChangeFunc('main', 'in', function () {
         this._paper.positionAnimation.start({
             x: 0
         });
+        this._paper.expandAnimation.start({
+            x: 1,
+            y: 1,
+            duration: 300
+        }).then(function() {
+            this._paper.opacityAnimation.start({
+                opacity: 1,
+                duration: 300
+            });
+        }.bind(this));
     }.bind(this));
 }
 
@@ -388,7 +442,7 @@ function _renderLinks() {
         clickFunc: _logout.call(this)
     });
     new DOMElement(node, {
-        classes: ['bg-white'],
+        classes: ['bg-lt-6-grey'],
         content: this._templates.logout.format(this._language.logout)
     });
     topNode.addChild(node);
@@ -431,7 +485,7 @@ function _renderLinks() {
     }
     bottomHTML += '<div class="spacer-48"></div>';
     new DOMElement(node, {
-        classes: ['bg-white'],
+        classes: ['bg-lt-6-grey'],
         content: bottomHTML
     });
     topNode.addChild(node);
@@ -627,11 +681,12 @@ function _renderButton() {
                 _createPaper.call(this, new ZDiv(this._paper.rootNode, {
                     z: 2
                 }).contentNode);
-                this._paper.node.setPosition(-240, 0, 0);
+                //this._paper.node.setPosition(-240, 0, 0);
                 _renderLinks.call(this);
                 //this._rootNode.show();
                 this._rootNode.addChild(this._paper.rootNode);
-                clock.setTimeout(this.changeState.bind(this, 'main'), 300);
+                globalStore.deferAction(10)
+                    .then(this.changeState.bind(this, 'main'));
             } else this.changeState(this._SMCurrent === 'hidden' ? 'main' : 'hidden');
         }.bind(this)
     });
@@ -640,45 +695,45 @@ function _renderButton() {
             content: this._templates.fbLogo
         });
     }
-    new DOMElement(this._supportButtons.node, {
-        content: this._templates.supportLogos
-    });
-    this._supportButtons.node.registerEvent('click');
-    this._supportButtons.node.addManagedComponent(getEventReceiver({
-        eventName: 'click',
-        callback: function (event) {
-            event.stopPropagation();
-        }.bind(this)
-    }));
-    EventRipple.syncEventsToRipple(this._supportButtons.node, {
-        globalClickSetter: true,
-        backgroundClassList: [],
-        noRipple: true,
-        scrollOverride: true,
-        size: {
-            fixed: true,
-            y: 48
-        },
-        clickMap: {
-            fixed: false,
-            x: [
-                {
-                    min: 0,
-                    max: 48,
-                    y: [[0, 48]]
-                }
-            ]
-        },
-        clickFunc: _supportClickFunc.bind(this)
-    });
-    globalStore.watch('contactUs', function() {
-        _supportClickFunc.call(this, {
-            y: 0,
-            screenX: 0,
-            screenY: 0
-        })
-    }.bind(this));
-    this._supportButtons.node.show();
+    //new DOMElement(this._supportButtons.node, {
+    //    content: this._templates.supportLogos
+    //});
+    //this._supportButtons.node.registerEvent('click');
+    //this._supportButtons.node.addManagedComponent(getEventReceiver({
+    //    eventName: 'click',
+    //    callback: function (event) {
+    //        event.stopPropagation();
+    //    }.bind(this)
+    //}));
+    //EventRipple.syncEventsToRipple(this._supportButtons.node, {
+    //    globalClickSetter: true,
+    //    backgroundClassList: [],
+    //    noRipple: true,
+    //    scrollOverride: true,
+    //    size: {
+    //        fixed: true,
+    //        y: 48
+    //    },
+    //    clickMap: {
+    //        fixed: false,
+    //        x: [
+    //            {
+    //                min: 0,
+    //                max: 48,
+    //                y: [[0, 48]]
+    //            }
+    //        ]
+    //    },
+    //    clickFunc: _supportClickFunc.bind(this)
+    //});
+    //globalStore.watch('contactUs', function() {
+    //    _supportClickFunc.call(this, {
+    //        y: 0,
+    //        screenX: 0,
+    //        screenY: 0
+    //    })
+    //}.bind(this));
+    //this._supportButtons.node.show();
     this._button.buttonNode.show();
 }
 

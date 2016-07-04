@@ -34,7 +34,6 @@ function _createScrollContainer(options) {
         .setAlign(0.5, 1, 0)
         .setMountPoint(0.5, 1, 0);
     this._scrollContainer = new ScrollContainer(this._rootNode, {
-        bar: true,
         syncScroll: 'outerPaperScroll',
         shortenBar: 48,
         shiftX: options.mode === 'fixedWide' ? 60 : 0
