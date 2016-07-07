@@ -16,6 +16,40 @@
       }
     ]
   },
+  "contact": {
+    "auth": {
+      "req": true,
+      "redirect": "login"
+    },
+    "resources": [
+      {
+        "type": "template",
+        "url": {
+          "key": "server",
+          "url": "json/cannect/en/templates/contactUs/{0}.json"
+        },
+        "ver": 0,
+        "appendURL": [0]
+      }
+    ]
+  },
+  "contests": {
+    "auth": {
+      "req": true,
+      "redirect": "login"
+    },
+    "resources": [
+      {
+        "type": "template",
+        "url": {
+          "key": "server",
+          "url": "json/cannect/en/templates/contests/{0}.json"
+        },
+        "ver": 0,
+        "appendURL": [0]
+      }
+    ]
+  },
   "home": {
     "auth": {
       "req": true,
@@ -36,8 +70,8 @@
         "key": "userData",
         "url": {
           "auth": true,
-          "key": "api",
-          "url": "user"
+          "key": "server",
+          "url": "json/mockData/userData.json"
         }
       }
     ]

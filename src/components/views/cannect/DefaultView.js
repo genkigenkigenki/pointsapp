@@ -34,9 +34,12 @@ function _createScrollContainer(options) {
         .setAlign(0.5, 1, 0)
         .setMountPoint(0.5, 1, 0);
     this._scrollContainer = new ScrollContainer(this._rootNode, {
+        bar: true,
+        barClassList: ['events-none', 'bg-lt-6-grey'],
         syncScroll: 'outerPaperScroll',
-        shortenBar: 48,
-        shiftX: options.mode === 'fixedWide' ? 60 : 0
+        shortenBar: options.mode === 'fixedWide' ? 48 : -24,
+        shiftY: options.mode === 'fixedWide' ? 0 : -12,
+        shiftX: options.mode === 'fixedWide' ? 60 : 12
     });
 }
 

@@ -48,8 +48,10 @@ function _getID(key, params, resKey) {
 
 CacheManager.prototype.set = function(id, data) {
     var temp = this.temp[id];
-    delete this.temp[id];
-    this.cache[temp.type][id] = _.cloneDeep(data);
+    if (temp) {
+        delete this.temp[id];
+        this.cache[temp.type][id] = _.cloneDeep(data);
+    }
 };
 
 //data

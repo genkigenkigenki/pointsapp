@@ -85,8 +85,9 @@ module.exports = {
         cookieExpiryDays: 1,
         login: {
             url: {
-                key: 'api',
-                url: 'login'
+                key: 'server',
+                url: 'json/mockData/login.json',
+                forceGet: true
             },
             username: 'username',
             password: 'password',

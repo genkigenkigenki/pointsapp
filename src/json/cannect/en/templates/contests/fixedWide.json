@@ -1,0 +1,68 @@
+{
+  "rootNode": "content",
+  "mode": "fixedWide",
+  "key": "contests",
+  "dataReqs": ["disclaimerHTML"],
+  "title": "Next Generation Trading | Forex and CFDs on MT4 | Milton Markets",
+  "desc": "Here at Milton Markets we are working to provide you with the best possible trading environment for Forex and CFDs. We are your trusty trading partner.",
+  "nodes": [
+    {
+      "id": "contests",
+      "nodeConfig": {
+        "offScreenYPos": true
+      },
+      "components": [
+        {
+          "type": "AnimatePosition",
+          "saveRef": "animate"
+        },
+        {
+          "type": "Contests",
+          "saveRef": "contestsComp",
+          "options": {
+            "mode": "fixedWide",
+            "templates": {
+              "paper": "<div class=\"bg-lt-3-grey pad-36\"><div class=\"f-body-one color-black-87\">We have partnered with Gallant Capital Markets to use their industry leading trade execution technology. A UK FSC registered company, Gallant has been working for years on fine tuning their STP / DMA trading technology. We compared many options and chose Gallant's services for their speed, stability and ability to offer the best possible price. Our servers are hosted in the state of the art Equinix NY4 data center.</div><div class=\"spacer-24\"></div><div class=\"f-title color-black-87\">STP / DMA Execution</div><div class=\"f-subhead color-grey-600\">Fair and Transparent Dealing</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">Our trade execution process is simple and straight forward. The prices obtained by our liquidity providers are 100% transparent and can be disclosed to you at anytime.</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">1. We receive your order.</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">2. Our systems are constantly searching for the best price from all our liquidity providers. We match your order with the best possible price available at this instant.</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">3. Our system automatically applies the markup (1 pip for Standard, 0 for Premium) and executes your order. Only a few milliseconds have passed since the order has been received.</div><div class=\"spacer-24\"></div><div class=\"f-title color-black-87\">Equinix NY4 Data Center</div><div class=\"f-subhead color-grey-600\">Unparalleled Speed</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">Our servers are located in the Equinix NY4 data center. Equinix NY4 is a state of the art data center interconnecting the financial services industry to top financial markets worldwide. Equinix is home to the largest collection of exchanges and trading platforms.</div><div class=\"spacer-12\"></div><div class=\"f-body-one color-black-87\">If you use our VPS, your trades can execute with less than 1 millisecond of latency. Traders utilizing automated and high frequency trading systems can benefit from our ultra-low latency system to receive the best possible performance from their strategies. </div></div>"
+            },
+            "bannerSVG": {
+              "content": "<div class=\"shadow-one\" style=\"width: {0}px; height: {1}px\"><svg version=\"1.1\" id=\"contact_ban\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"width=\"{0}\" height=\"{1}\" viewBox=\"0 0 750 120\" style=\"enable-background:new 0 0 750 120;\" xml:space=\"preserve\"> <style type=\"text/css\"> .contactban0{stroke:#F5F8FD;stroke-width:2;stroke-miterlimit:2;stroke-dasharray:8,3;} .contactban1{fill:#EB252B;} .contactban2{fill:#F5F5FA;} .contactban3{fill:#F5F8FD;} .contactban4{fill:#F8F7FB;} .contactban5{fill:#5E5F5F;} .contactban6{fill:#C0C0C0;} .contactban7{fill:#C24D4D;} .contactban8{fill:#FED700;} .contactban9{fill:#FFFFFF;} </style> <rect class=\"contactban5\" width=\"750\" height=\"120\"/> <g> <path class=\"contactban8\" d=\"M615.6,60c0,0.9,0,1.9-0.1,2.8c-0.6,8.1-3.7,15.4-8.6,21.2c-3.7,4.4-8.3,8-13.7,10.3 c-4.6,2.1-9.8,3.2-15.2,3.2c-2.5,0-4.9-0.2-7.2-0.7c-5.6-1.1-10.8-3.5-15.3-6.8c-5.9-4.4-10.4-10.5-12.9-17.6 c-1.3-3.9-2.1-8-2.1-12.3c0-1.4,0.1-2.7,0.2-4c0.8-7.6,3.9-14.5,8.6-20.1c3.5-4.2,7.9-7.6,12.9-9.9c4.8-2.2,10.1-3.5,15.8-3.5 c2,0,4,0.2,6,0.5c5.6,0.9,10.7,3,15.2,6.1c6,4.1,10.8,10,13.6,16.8C614.6,50.2,615.6,55,615.6,60z\"/> <path class=\"contactban3\" d=\"M578.1,87c-0.7,0-1.4,0-2.1-0.1l0.1-1.7c2.1,0.2,4.3,0.1,6.4-0.3l0.3,1.7C581.2,86.8,579.6,87,578.1,87z M573.4,86.6c-2.3-0.4-4.4-1.1-6.5-2l0.7-1.5c1.9,0.9,4,1.5,6.1,1.9L573.4,86.6z M585.3,86l-0.4-1.6c2.1-0.6,4-1.4,5.9-2.5l0.8,1.5 C589.6,84.5,587.5,85.4,585.3,86z M564.6,83.4c-2-1.1-3.8-2.5-5.4-4.1l1.2-1.2c1.5,1.5,3.2,2.8,5.1,3.9L564.6,83.4z M593.7,82 l-1-1.4c1.7-1.2,3.3-2.7,4.7-4.3l1.3,1.1C597.3,79.1,595.6,80.6,593.7,82z M557.4,77.4c-1.5-1.7-2.7-3.7-3.7-5.7l1.5-0.7 c0.9,1.9,2.1,3.7,3.5,5.4L557.4,77.4z M600.3,75.3l-1.4-1c1.2-1.8,2.2-3.7,2.9-5.7l1.6,0.6C602.6,71.4,601.6,73.4,600.3,75.3z M552.7,69.3c-0.8-2.1-1.3-4.4-1.5-6.7l1.7-0.2c0.2,2.1,0.7,4.2,1.4,6.2L552.7,69.3z M604.2,66.8l-1.6-0.4c0.5-2.1,0.8-4.2,0.8-6.3 v-0.1h1.7V60C605,62.3,604.7,64.6,604.2,66.8z M551.1,60.1L551.1,60.1c0-2.3,0.3-4.6,0.8-6.8l1.6,0.4c-0.5,2-0.8,4.2-0.8,6.3 L551.1,60.1z M603.2,57.5c-0.2-2.1-0.7-4.2-1.4-6.2l1.6-0.6c0.8,2.1,1.3,4.4,1.5,6.7L603.2,57.5z M554.3,51.4l-1.6-0.6 c0.8-2.1,1.8-4.2,3.1-6.1l1.4,1C556,47.5,555,49.4,554.3,51.4z M600.9,49.1c-0.9-1.9-2.1-3.7-3.5-5.4l1.3-1.1 c1.5,1.7,2.7,3.7,3.7,5.7L600.9,49.1z M558.7,43.7l-0.7-0.5l-0.6-0.6c1.5-1.7,3.1-3.3,5-4.6l1,1.4 C561.6,40.7,560.1,42.1,558.7,43.7z M595.7,41.9c-1.5-1.5-3.2-2.8-5.1-3.9l0.8-1.5c2,1.1,3.8,2.5,5.4,4.1L595.7,41.9z M565.4,38.1 l-0.8-1.5c0.7-0.4,1.4-0.8,2.2-1.1c1.3-0.6,2.7-1.1,4.1-1.5l0.5,1.6c-1.3,0.4-2.6,0.8-3.8,1.4C566.7,37.4,566,37.8,565.4,38.1z M588.5,37c-1.9-0.9-4-1.5-6.1-1.9l0.3-1.7c2.3,0.4,4.4,1.1,6.5,2L588.5,37z M573.6,35.1l-0.3-1.7c2.2-0.4,4.5-0.5,6.8-0.3 l-0.1,1.7C577.9,34.6,575.7,34.7,573.6,35.1z\"/> <path class=\"contactban9\" d=\"M566,31.1c-1.6,3.1-8.8,8.7-12.6,9.6l-4.1-4.8c3.5-4.2,7.9-7.6,12.9-9.9L566,31.1z\"/> <path class=\"contactban0\" d=\"M540.8,56.2\"/> <path class=\"contactban2\" d=\"M548.6,71.6l-6,0.8c-1.3-3.9-2.1-8-2.1-12.3c0-1.4,0.1-2.7,0.2-4l6.1-0.6C548.5,57.3,549.5,68.7,548.6,71.6z\"/> <path class=\"contactban2\" d=\"M573.2,91l-2.4,5.8c-5.6-1.1-10.8-3.5-15.3-6.8l2.8-5.7C561.3,84.2,571.9,89,573.2,91z\"/> <g> <polygon class=\"contactban1\" points=\"587.5,51.5 582.5,51.5 575.3,68.5 580.3,68.5 \t\t\"/> <polygon class=\"contactban1\" points=\"578.2,57.7 573.2,57.7 568.6,68.5 573.6,68.5 \t\t\"/> </g> <path class=\"contactban4\" d=\"M599.2,29l-2.8,5.7c-3,0.1-13.2-4-14.6-6.2L584,23C589.6,23.9,594.8,26,599.2,29z\"/> <path class=\"contactban9\" d=\"M615.6,60c0,0.9,0,1.9-0.1,2.8l-6.9,0.3c-2-2.2-3.5-13.6-2.1-15.8l6.4-1.4C614.6,50.2,615.6,55,615.6,60z\"/> <path class=\"contactban9\" d=\"M606.9,84c-3.7,4.4-8.3,8-13.7,10.3l-3.9-5.5c1.4-2.6,10.3-9.6,13.2-10.1L606.9,84z\"/> </g> <polygon class=\"contactban7\" points=\"551.5,0 431.5,120 0,120 0,109.3 109.3,0 \"/> <g> <path class=\"contactban6\" d=\"M715.6,60c0,0.9,0,1.9-0.1,2.8c-0.6,8.1-3.7,15.4-8.6,21.2c-3.7,4.4-8.3,8-13.7,10.3 c-4.6,2.1-9.8,3.2-15.2,3.2c-2.5,0-4.9-0.2-7.2-0.7c-5.6-1.1-10.8-3.5-15.3-6.8c-5.9-4.4-10.4-10.5-12.9-17.6 c-1.3-3.9-2.1-8-2.1-12.3c0-1.4,0.1-2.7,0.2-4c0.8-7.6,3.9-14.5,8.6-20.1c3.5-4.2,7.9-7.6,12.9-9.9c4.8-2.2,10.1-3.5,15.8-3.5 c2,0,4,0.2,6,0.5c5.6,0.9,10.7,3,15.2,6.1c6,4.1,10.8,10,13.6,16.8C714.6,50.2,715.6,55,715.6,60z\"/> <path class=\"contactban3\" d=\"M678.1,87c-0.7,0-1.4,0-2.1-0.1l0.1-1.7c2.1,0.2,4.3,0.1,6.4-0.3l0.3,1.7C681.2,86.8,679.6,87,678.1,87z M673.4,86.6c-2.3-0.4-4.4-1.1-6.5-2l0.7-1.5c1.9,0.9,4,1.5,6.1,1.9L673.4,86.6z M685.3,86l-0.4-1.6c2.1-0.6,4-1.4,5.9-2.5l0.8,1.5 C689.6,84.5,687.5,85.4,685.3,86z M664.6,83.4c-2-1.1-3.8-2.5-5.4-4.1l1.2-1.2c1.5,1.5,3.2,2.8,5.1,3.9L664.6,83.4z M693.7,82 l-1-1.4c1.7-1.2,3.3-2.7,4.7-4.3l1.3,1.1C697.3,79.1,695.6,80.6,693.7,82z M657.4,77.4c-1.5-1.7-2.7-3.7-3.7-5.7l1.5-0.7 c0.9,1.9,2.1,3.7,3.5,5.4L657.4,77.4z M700.3,75.3l-1.4-1c1.2-1.8,2.2-3.7,2.9-5.7l1.6,0.6C702.6,71.4,701.6,73.4,700.3,75.3z M652.7,69.3c-0.8-2.1-1.3-4.4-1.5-6.7l1.7-0.2c0.2,2.1,0.7,4.2,1.4,6.2L652.7,69.3z M704.2,66.8l-1.6-0.4c0.5-2.1,0.8-4.2,0.8-6.3 v-0.1h1.7V60C705,62.3,704.7,64.6,704.2,66.8z M651.1,60.1L651.1,60.1c0-2.3,0.3-4.6,0.8-6.8l1.6,0.4c-0.5,2-0.8,4.2-0.8,6.3 L651.1,60.1z M703.2,57.5c-0.2-2.1-0.7-4.2-1.4-6.2l1.6-0.6c0.8,2.1,1.3,4.4,1.5,6.7L703.2,57.5z M654.3,51.4l-1.6-0.6 c0.8-2.1,1.8-4.2,3.1-6.1l1.4,1C656,47.5,655,49.4,654.3,51.4z M700.9,49.1c-0.9-1.9-2.1-3.7-3.5-5.4l1.3-1.1 c1.5,1.7,2.7,3.7,3.7,5.7L700.9,49.1z M658.7,43.7l-0.7-0.5l-0.6-0.6c1.5-1.7,3.1-3.3,5-4.6l1,1.4 C661.6,40.7,660.1,42.1,658.7,43.7z M695.7,41.9c-1.5-1.5-3.2-2.8-5.1-3.9l0.8-1.5c2,1.1,3.8,2.5,5.4,4.1L695.7,41.9z M665.4,38.1 l-0.8-1.5c0.7-0.4,1.4-0.8,2.2-1.1c1.3-0.6,2.7-1.1,4.1-1.5l0.5,1.6c-1.3,0.4-2.6,0.8-3.8,1.4C666.7,37.4,666,37.8,665.4,38.1z M688.5,37c-1.9-0.9-4-1.5-6.1-1.9l0.3-1.7c2.3,0.4,4.4,1.1,6.5,2L688.5,37z M673.6,35.1l-0.3-1.7c2.2-0.4,4.5-0.5,6.8-0.3 l-0.1,1.7C677.9,34.6,675.7,34.7,673.6,35.1z\"/> <path class=\"contactban9\" d=\"M666,31.1c-1.6,3.1-8.8,8.7-12.6,9.6l-4.1-4.8c3.5-4.2,7.9-7.6,12.9-9.9L666,31.1z\"/> <path class=\"contactban0\" d=\"M640.8,56.2\"/> <path class=\"contactban2\" d=\"M648.6,71.6l-6,0.8c-1.3-3.9-2.1-8-2.1-12.3c0-1.4,0.1-2.7,0.2-4l6.1-0.6C648.5,57.3,649.5,68.7,648.6,71.6z\"/> <path class=\"contactban2\" d=\"M673.2,91l-2.4,5.8c-5.6-1.1-10.8-3.5-15.3-6.8l2.8-5.7C661.3,84.2,671.9,89,673.2,91z\"/> <g> <polygon class=\"contactban1\" points=\"687.5,51.5 682.5,51.5 675.3,68.5 680.3,68.5 \t\t\"/> <polygon class=\"contactban1\" points=\"678.2,57.7 673.2,57.7 668.6,68.5 673.6,68.5 \t\t\"/> </g> <path class=\"contactban4\" d=\"M699.2,29l-2.8,5.7c-3,0.1-13.2-4-14.6-6.2L684,23C689.6,23.9,694.8,26,699.2,29z\"/> <path class=\"contactban9\" d=\"M715.6,60c0,0.9,0,1.9-0.1,2.8l-6.9,0.3c-2-2.2-3.5-13.6-2.1-15.8l6.4-1.4C714.6,50.2,715.6,55,715.6,60z\"/> <path class=\"contactban9\" d=\"M706.9,84c-3.7,4.4-8.3,8-13.7,10.3l-3.9-5.5c1.4-2.6,10.3-9.6,13.2-10.1L706.9,84z\"/> </g> <g> <path class=\"contactban9\" d=\"M135.2,48.6h-25.5v22.8h25.5v6.1h-24.3c-3,0-5.3-0.7-6.6-2c-1.4-1.3-2.1-3.4-2.1-6.3V50.6 c0-5.4,2.8-8.1,8.3-8.1h24.7V48.6z\"/> <path class=\"contactban9\" d=\"M172.5,69.4c0,2.9-0.6,5-1.8,6.2c-1.2,1.3-3,1.9-5.6,1.9h-19.8c-2.5,0-4.4-0.6-5.6-1.9 c-1.2-1.3-1.8-3.3-1.8-6.2V50.6c0-2.9,0.6-5,1.8-6.3c1.2-1.2,3-1.9,5.6-1.9h19.8c2.6,0,4.5,0.6,5.6,1.9c1.1,1.2,1.7,3.3,1.7,6.3 V69.4z M165.1,71.5V48.6h-19.6v22.9H165.1z\"/> <path class=\"contactban9\" d=\"M211.8,77.5h-8.1l-14.9-21.8c-1-1.4-1.8-3.2-2.5-5.2l-4.4,1.9c0.7,3.9,1,6.6,1,8.1v17.1h-6.7v-35H188 l10.7,15.8c1.4,2.1,2.4,4,2.9,5.7l4.5-1.6c-0.7-3-1.1-5.5-1.1-7.3V42.5h6.8V77.5z\"/> <path class=\"contactban9\" d=\"M248.4,48.6h-12.5v28.9h-8.1V48.6h-13.1v-6.1h33.7V48.6z\"/> <path class=\"contactban9\" d=\"M285.3,77.5h-7.4V61.6h-20.4v15.9h-7.4V48c0-3.6,2.2-5.5,6.6-5.5h22c4.4,0,6.5,1.8,6.5,5.5V77.5z M277.9,58 v-9.4h-20.4V58H277.9z\"/> <path class=\"contactban9\" d=\"M320.8,48.6h-25.5v22.8h25.5v6.1h-24.3c-3,0-5.3-0.7-6.6-2c-1.4-1.3-2.1-3.4-2.1-6.3V50.6 c0-5.4,2.8-8.1,8.3-8.1h24.7V48.6z\"/> <path class=\"contactban9\" d=\"M356.6,48.6h-12.5v28.9h-8.1V48.6h-13.1v-6.1h33.7V48.6z\"/> <path class=\"contactban9\" d=\"M411.5,72c0,3.6-2.2,5.5-6.5,5.5h-22.1c-4.4,0-6.6-1.8-6.6-5.5V42.5h7.5v29h20.3v-29h7.4V72z\"/> <path class=\"contactban9\" d=\"M449.3,73c0,3-2.1,4.5-6.4,4.5h-28.3v-6.1h27.6v-8.9h-19.9c-2.6,0-4.5-0.4-5.7-1.2c-1.2-0.8-1.8-2.1-1.8-4 v-9.8c0-1.8,0.6-3,1.9-3.8c1.4-0.8,4-1.3,7.8-1.3h22.1v6.1h-24.6v8.9h20.7c2.4,0,4.2,0.5,5.2,1.5c0.9,0.8,1.4,2.2,1.4,4.1V73z\"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg></div>",
+              "x": 750,
+              "y": 120
+            },
+            "layout": {
+              "fixedWidth": 900,
+              "paper": {
+                "marginTop": 48,
+                "padding": 24
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "transition": {
+    "in": [
+      {
+        "componentID": "animate",
+        "funcName": "start",
+        "transitionLock": "true",
+        "options": {
+          "y": 0,
+          "duration": 1200
+        }
+      }
+    ],
+    "out": [
+      {
+        "componentID": "animate",
+        "funcName": "start",
+        "transitionLock": "true",
+        "options": {
+          "offScreenYNeg": true,
+          "duration": 1200
+        }
+      }
+    ]
+  }
+}

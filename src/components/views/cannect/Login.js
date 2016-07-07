@@ -43,7 +43,7 @@ function _render(options) {
     var html = '';
     options.windowWidth = globalStore.get('windowWidth');
     options.windowHeight = globalStore.get('windowHeight');
-    //html = this.addBanner(html, options);
+    html = this.addBanner(html, options);
     html += _createPaper.call(this, options);
     html += globalStore.get('disclaimerHTML');
     this._el.setContent(html);
@@ -105,6 +105,9 @@ function _createForm(options) {
         formData: options.forms.inquiry.config,
         model: {}
     });
+    options.forms.inquiry.request.processData = function() {
+        globalStore.get('workerEventManager').sendMessage('route', '/home');
+    };
     form.registerFunction('submit', Form.submit.bind(form, options.forms.inquiry.request));
     this._scrollContainer.watchForm(form._formID);
 }
@@ -114,7 +117,7 @@ function _createPaper(options) {
         width = options.layout.fixedWidth ? options.layout.fixedWidth : options.windowWidth - (options.layout.paper.padding * 2);
     html += options.templates.blurb.format(options.templates.blurbInner);
     options.getSizeString = options.getSize.blurb.format(width, options.templates.blurbInner);
-    this._currentY = 0;
+    this._currentY = options.currentY;
     return html;
 }
 

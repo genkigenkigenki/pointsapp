@@ -225,6 +225,12 @@ function _processOptions(options) {
     if (options.offScreenX) {
         options.x = -(globalStore.get('windowWidth'));
     }
+    if (options.offScreenYPos) {
+        options.y = globalStore.get('windowHeight');
+    }
+    if (options.offScreenYNeg) {
+        options.y = -2800;
+    }
     return options;
 }
 
@@ -382,6 +388,14 @@ function _processNodeConfig(config) {
     if (config.offScreenX) {
         config.setPosition = [-(globalStore.get('windowWidth')), 0, 0];
         delete config.offScreenX;
+    }
+    if (config.offScreenYPos) {
+        config.setPosition = [0, globalStore.get('windowHeight'), 0];
+        delete config.offScreenYPos;
+    }
+    if (config.offScreenYNeg) {
+        config.setPosition = [0, -2800, 0];
+        delete config.offScreenYNeg;
     }
     return config;
 }

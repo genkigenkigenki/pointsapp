@@ -87,7 +87,7 @@ Backend.prototype.send = function (url, postData, isFile) {
             request = createXMLHTTPObject();
         }
         if (!request) return;
-        method = postData ? 'POST' : 'GET';
+        method = url.forceGet ? 'GET' : postData ? 'POST' : 'GET';
         request.open(method, this.urls[url.key] + url.url, true);
         if (postData) {
             if (url.cookies) {

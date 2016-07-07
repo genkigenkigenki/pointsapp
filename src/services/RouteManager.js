@@ -6,6 +6,7 @@ var crossroads      = require('crossroads'),
     History         = window.History;
 
 function _handleHash(newHash, oldHash) {
+    console.log(newHash);
     this.currentHash = newHash;
     this.parseHash(newHash);
 }
@@ -165,7 +166,6 @@ function _retrieveCreds(config) {
 }
 
 function _noAuthRedirect(redirect) {
-    console.log(redirect);
     //this.hashBeforeAuthDenial = History.getState().hash.substring(3);
     History.pushState(null, '', '/' + this.lang + '/' + redirect);
 }
@@ -213,6 +213,11 @@ RouteManager.prototype.start = function start(lang, searchManager) {
     History.pushState(null, '', hash);
     History.Adapter.bind(window, 'statechange', parseHistory.bind(this));
     _handleHash.call(this, hash.substring(3));
+};
+
+RouteManager.prototype.routeHash = function(hash) {
+    History.pushState(null, '', '/' + this.lang + hash);
+    this.parseHash(hash);
 };
 
 RouteManager.prototype.parseHash = function _parseHash(hash) {

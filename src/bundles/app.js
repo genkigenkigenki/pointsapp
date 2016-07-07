@@ -64,7 +64,7 @@ function _loadWorker() {
         });
         this.workerEventManager.register({
             type: 'message',
-            func: this.routeManager.parseHash,
+            func: this.routeManager.routeHash.bind(this.routeManager),
             signature: 'route'
         });
         this.workerEventManager.register({

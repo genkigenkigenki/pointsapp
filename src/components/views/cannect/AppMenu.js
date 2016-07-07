@@ -392,7 +392,7 @@ function _removeMiddleButton() {
 }
 
 function _logout() {
-
+    globalStore.get('workerEventManager').sendMessage('redirect', '/en/login');
 }
 
 function _renderLinks() {
@@ -439,7 +439,7 @@ function _renderLinks() {
                 step: 48
             }
         },
-        clickFunc: _logout.call(this)
+        clickFunc: _logout
     });
     new DOMElement(node, {
         classes: ['bg-lt-6-grey'],

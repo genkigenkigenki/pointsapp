@@ -483,6 +483,7 @@ function _createBar(options) {
         .setMountPoint(1, 0.5)
         .setPosition(positionX, positionY, 1);
     this._bar = new ScrollBar(barNode, {
+        barClassList: options && options.barClassList || false,
         direction: this._isX ? 'x' : 'y'
     });
 }
